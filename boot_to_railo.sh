@@ -6,8 +6,9 @@
 # "User Data" section of your command or launch screen.
 #
 #      #Include
-#      https://codeload.github.com/amaroom/railo-ec2/tar.gz/0.2
+#      https://raw.github.com/amaroom/railo-ec2/master/boot_to_railo.sh
 # 
+# You could also copy the script to your own repo or instance available path.
 # The new instance will book and install Tomcat and Railo, ready to run. Just drop your 
 # code in /usr/share/tomcat7/webapps/ROOT or drop a WAR file in webapps. 
 #
