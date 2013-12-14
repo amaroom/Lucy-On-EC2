@@ -6,7 +6,7 @@
 # "User Data" section of your command or launch screen.
 #
 #      #Include
-#      http://path.to/this.scripts/repo.download.gz
+#      https://codeload.github.com/amaroom/railo-ec2/tar.gz/0.2
 # 
 # The new instance will book and install Tomcat and Railo, ready to run. Just drop your 
 # code in /usr/share/tomcat7/webapps/ROOT or drop a WAR file in webapps. 
