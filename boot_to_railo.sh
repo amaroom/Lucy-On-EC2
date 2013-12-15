@@ -5,7 +5,7 @@
 # launching a new Amazon Linux instance. Make sure to add this line to the 
 # "User Data" section of your command or launch screen.
 #
-#      #Include
+#      #include
 #      https://raw.github.com/amaroom/railo-ec2/master/boot_to_railo.sh
 # 
 # You could also copy the script to your own repo or instance available path.
