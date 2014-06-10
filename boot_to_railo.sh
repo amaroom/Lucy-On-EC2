@@ -20,7 +20,7 @@
 # '@Amaroom'
 
 # install Tomcat and git
-yum -y install tomcat7 git
+yum -y install tomcat7 tomcat-native git
 
 # set Tomcat service to start on reboot
 chkconfig tomcat7 on
