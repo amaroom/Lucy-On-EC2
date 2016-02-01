@@ -6,7 +6,7 @@
 # "User Data" section of your command or launch screen.
 #
 #      #include
-#      https://raw.github.com/amaroom/railo-ec2/master/boot_to_railo.sh
+#      https://raw.githubusercontent.com/amaroom/Lucy-On-EC2/master/boot_to_railo.sh
 # 
 # You could also copy the script to your own repo or instance available path.
 # The new instance will book and install Tomcat and Railo, ready to run. Just drop your 
