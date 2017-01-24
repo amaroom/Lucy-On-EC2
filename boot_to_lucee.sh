@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This boot script will install Lucee 4.5.2 in a server configuration on an Amazon
+# This boot script will install Lucee 5.x in a server configuration on an Amazon
 # EC2 Amazon Linux instance. To use this script, start your preferred method of 
 # launching a new Amazon Linux instance. Make sure to add these two lines to the 
 # "User Data" section of your command or launch screen.
@@ -26,19 +26,16 @@ yum -y install tomcat8 tomcat-native git
 chkconfig tomcat8 on
 
 # Lucee jars will live in the Tomcat folder
-mkdir /usr/share/tomcat8/lucee
+mkdir /usr/share/tomcat8/lucee-server
 
-# Download the Lucee jars to a temp folder and expand. 
-wget -O /tmp/lucee.zip "https://bitbucket.org/lucee/lucee/downloads/lucee-4.5.2.018-jars.zip"
-unzip /tmp/lucee.zip -d /tmp/lucee
+# Download the Lucee jar
+wget -O /usr/share/tomcat8/lucee-server/lucee.jar "https://oss.sonatype.org/content/repositories/releases/org/lucee/lucee/5.0.1.85/lucee-5.0.1.85.jar"
 
-# Place the jars in our new Tomcat sub-folder.
-mv -t /usr/share/tomcat8/lucee/ /tmp/lucee/*
-chown -R tomcat.tomcat /usr/share/tomcat8/lucee/
+chown -R tomcat.tomcat /usr/share/tomcat8/lucee-server/
 
-# For tomcat to find the Jars, we need to include their path in the common loader path.
+# For tomcat to find the Jar, we need to include their path in the common loader path.
 cp /etc/tomcat8/catalina.properties  /etc/tomcat8/catalina.orig
-sed -i 's|common.loader=\([^ ]*\)|common.loader=\1,"${catalina.home}/lucee/*.jar"|' /etc/tomcat8/catalina.properties
+sed -i 's|common.loader=\([^ ]*\)|common.loader=\1,"${catalina.home}/lucee-server/lucee.jar"|' /etc/tomcat8/catalina.properties
 
 # Web.xml
 # For the Lucee servlet to be available to your files, and for tomcat to know that
