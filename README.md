@@ -27,7 +27,7 @@ This script does the following:
 
 - Update the instance with the latest patches.
 - Installs Tomcat 8, Tomcat Native Libraries and GIT.
-- Downloads Lucee Jars and places them in the Tomcat folder. (Lucee 4.5.2.018)
+- Downloads Lucee Jars and places them in the Tomcat folder. (Lucee 5.x)
 - Modifies `catalina.properties` to add the Lucee jars to the _common loader_ path.
 - Modifies the global Tomcat Web.xml file to include the Lucee Servlet's and their mappings. 
 - Generate's simple "Hello" `index.cfm` file and places it in the ROOT web context.
