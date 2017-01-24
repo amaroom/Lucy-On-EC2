@@ -53,7 +53,7 @@ sed -i 's|common.loader=\([^ ]*\)|common.loader=\1,"${catalina.home}/lucee/*.jar
 #
 # Web.xml: add railo servlet
 cp /etc/tomcat8/web.xml  /etc/tomcat8/web.xml.orig
-sed -i '365a\
+sed -i '375a\
 <!-- ===================================================================== -->\
 <!-- Lucee CFML Servlet - this is the main Lucee servlet                   -->\
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\
@@ -103,7 +103,7 @@ sed -i '365a\
 ' /etc/tomcat8/web.xml
 
 # Web.xml: add servlet mapping
-sed -i '451a\
+sed -i '444a\
 <servlet-mapping>\
 <servlet-name>CFMLServlet</servlet-name>\
 <url-pattern>*.cfc</url-pattern>\
@@ -155,4 +155,4 @@ chown -R tomcat.tomcat /usr/share/tomcat8/webapps/ROOT/
 shutdown -r now
 
 # Done. From here you can write your own scripts to copy Wars, or copy code.
-# Don't forget to log into the Railo manager and change the default passwords.
+# Don't forget to log into the Lucee manager and change the default passwords.
