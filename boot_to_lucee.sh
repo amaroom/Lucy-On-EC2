@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # This boot script will install Lucee 4.5.2 in a server configuration on an Amazon
-# EC2 Amazon Linux instance. To use this script, start your preferred method of 
-# launching a new Amazon Linux instance. Make sure to add these two lines to the 
+# EC2 Amazon Linux instance. To use this script, start your preferred method of
+# launching a new Amazon Linux instance. Make sure to add these two lines to the
 # "User Data" section of your command or launch screen.
 #
 #      #include
-#      https://raw.githubusercontent.com/amaroom/Lucy-On-EC2/master/boot_to_lucee.sh
-# 
+#      https://raw.githubusercontent.com/amaroom/Lucy-On-EC2/Lucee_4_5/boot_to_lucee.sh
+#
 # You could also copy the script to your own repo or path available to your instance.
-# The new instance will boot and install Tomcat 8 and Lucee, ready to run. Just drop your 
-# code in /usr/share/tomcat7/webapps/ROOT or drop a WAR file in webapps. 
+# The new instance will boot and install Tomcat 8 and Lucee, ready to run. Just drop your
+# code in /usr/share/tomcat7/webapps/ROOT or drop a WAR file in webapps.
 #
 # Git is also installed, so you can add your own script on a new line in the "#Include"
 # block to pull code, or do anything else you'd like.
@@ -28,7 +28,7 @@ chkconfig tomcat8 on
 # Lucee jars will live in the Tomcat folder
 mkdir /usr/share/tomcat8/lucee
 
-# Download the Lucee jars to a temp folder and expand. 
+# Download the Lucee jars to a temp folder and expand.
 wget -O /tmp/lucee.zip "https://bitbucket.org/lucee/lucee/downloads/lucee-4.5.2.018-jars.zip"
 unzip /tmp/lucee.zip -d /tmp/lucee
 
@@ -42,12 +42,12 @@ sed -i 's|common.loader=\([^ ]*\)|common.loader=\1,"${catalina.home}/lucee/*.jar
 
 # Web.xml
 # For the Lucee servlet to be available to your files, and for tomcat to know that
-# the file extensions "cfm,cfml,cfc" should go through the Lucee servlet, we need to 
+# the file extensions "cfm,cfml,cfc" should go through the Lucee servlet, we need to
 # include the Lucee servlet definition and it's mapping to Web.xml.
 # Here, we are adding to Tomcat's top level Web.xml file, which is global. Any WAR or
 # app folders you place on the server will service files for Lucee ColdFusion.
-# 
-# Optionally, you may want to only include the servlet declarations in your projects own 
+#
+# Optionally, you may want to only include the servlet declarations in your projects own
 # Web.xml file. This gives you control over which apps on this Tomcat instance service
 # CF calls, or not. By setting it here in the global Web.xml, all apps will service CF.
 #
